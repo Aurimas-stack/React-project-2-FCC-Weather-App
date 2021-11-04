@@ -43,7 +43,6 @@ class App extends React.Component {
         this.handleWeather();
       })
     }
-    console.log(this.state.location);
     event.preventDefault();
   }
   handleWeather(lat, long){
