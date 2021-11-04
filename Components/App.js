@@ -56,6 +56,8 @@ class App extends React.Component {
         temperature: data.main.temp,
         img: data.weather[0].icon
       })
+    }).catch(error) => {
+      this.setState({location: error});
     })
 }
   render() {
