@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import weather from '../../util/weatherApp';
 import cloud from '../App/cloud.jpg';
 import snow from '../App/snow.jpg';
 import sunf from '../App/sunf.jpg';
@@ -37,16 +36,11 @@ class App extends React.Component {
   handleUserLocation = (event) => {
     if(navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
-        weather.getWeather(position.coords.latitude, position.coords.longitude).then((weathers) =>{
-          this.setState({
-            location: weathers
-          })
-          this.handleWeather();
-        })
         this.setState({
           latitude: position.coords.latitude, 
           longitude: position.coords.longitude
         })
+        this.handleWeather();
       })
     }
     console.log(this.state.location);
